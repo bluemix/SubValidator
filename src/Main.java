@@ -19,8 +19,12 @@ public class Main {
 			}
 			br.close();
 
-			String regex = "([0-9]+)(\n([0-9]+:[0-9]+:[0-9]+,[0-9]+) --> ([0-9]+:[0-9]+:[0-9]+,[0-9]+)\n(.+?\n)+)";
-			Matcher m1 = Pattern.compile(regex).matcher(sum);
+		        // m1.group(1): 970
+		        // m1.group(2): 01:01:12,620 --> 01:01:16,290
+		        // m1.group(3): start time
+		        // m1.group(4): end time
+		        // m1.group(5): content
+		        String regex = "([0-9]+)(\n([0-9]+:[0-9]+:[0-9]+,[0-9]+) --> ([0-9]+:[0-9]+:[0-9]+,[0-9]+))(\n(.+?\n)+)";			Matcher m1 = Pattern.compile(regex).matcher(sum);
 
 			int lastA = 0, lastB = 0;
 			while (m1.find()) {
